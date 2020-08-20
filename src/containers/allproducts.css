@@ -1,0 +1,109 @@
+.tablecontainer {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 2px solid gray;
+
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  text-align: left;
+
+  padding: 8px;
+}
+
+th {
+  background-color: #f1f1f1;
+  color: black;
+  height: 40px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.searchpro {
+  height: 30px;
+  width: 200px;
+  border: 2px solid black;
+  border-radius: 9px;
+}
+.searchpro::placeholder {
+  color: gray;
+}
+
+button {
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 10px;
+  height: 40px;
+  width: 90px;
+  color: white;
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.headernot {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+.headernot a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.headernot a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.headernot a:hover {
+  background-color: black;
+  color: white;
+}
+
+.headernot a.active {
+  background-color: black;
+  color: white;
+}
+
+.headernot-right {
+  float: right;
+}
+.searchcategory {
+  width: 300px;
+}
+.searchprice {
+  margin-left: 300px;
+  width: 300px;
+  margin-top: -46px;
+}
+@media all and (max-width: 600px) {
+  .searchcategory {
+    width: 300px;
+  }
+  .searchprice {
+    width: auto;
+  }
+}
+@media all and (max-width: 450px) {
+  .searchcategory {
+    width: auto;
+  }
+  .searchprice {
+    margin-left: 0px;
+    width: auto;
+    margin-top: 10px;
+  }
+}

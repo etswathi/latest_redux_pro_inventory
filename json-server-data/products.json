@@ -1,0 +1,94 @@
+{
+  "allproducts": [
+    {
+      "productName": "Toyssssv",
+      "productDescription": "NKK PNP Newly Kids Sofa Cum Bed (Pink)",
+      "productPrice": 2800,
+      "categoryName": "Kids",
+      "inStock": true,
+      "quantity": "8",
+      "productImage": "https://images-na.ssl-images-amazon.com/images/I/51sud34Mp1L.jpg",
+      "id": 2
+    },
+    {
+      "productName": "Jeans",
+      "productDescription": "white jeans",
+      "productPrice": "700",
+      "categoryName": "Dress",
+      "inStock": "true",
+      "quantity": "80",
+      "productImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT5W_J0rioi1WjE5qBoFWq0k5NeLgXbY5GOnA&usqp=CAU",
+      "id": 3
+    },
+    {
+      "productName": "Cameraaaam",
+      "productDescription": "High quality camera black colour",
+      "productPrice": "7900",
+      "categoryName": "Electronics",
+      "inStock": "true",
+      "quantity": "60",
+      "productImage": "https://images-na.ssl-images-amazon.com/images/I/914hFeTU2-L._SL1500_.jpg",
+      "id": 4
+    },
+    {
+      "productName": "Laptop",
+      "productDescription": "ASUS VivoBook 14 AMD Ryzen 3 3250U 14-inch FHD Compact",
+      "productPrice": "56787",
+      "categoryName": "Electronics",
+      "inStock": "true",
+      "quantity": "60",
+      "productImage": "https://images-na.ssl-images-amazon.com/images/I/81b4nLdmuzL._SL1500_.jpg",
+      "id": 6
+    }
+  ],
+  "allusers": [
+    {
+      "id": 1,
+      "firstName": "Reena",
+      "lastName": "ET",
+      "userName": "reenaet",
+      "email": "reena@gmail.com",
+      "password": "reena"
+    },
+    {
+      "firstName": "Swathi",
+      "lastName": "E T",
+      "userName": "swathiet",
+      "email": "swathiet@gmail.com",
+      "password": "swathiet",
+      "id": 2
+    },
+    {
+      "firstName": "Anoop",
+      "lastName": "Rahul",
+      "userName": "anooprahul",
+      "email": "anooprahul@gmail.com",
+      "password": "anooprahul",
+      "id": 3
+    },
+    {
+      "firstName": "Asha",
+      "lastName": "T",
+      "userName": "Asha",
+      "email": "asha@gmail.com",
+      "password": "asha",
+      "id": 4
+    },
+    {
+      "firstName": "gg",
+      "lastName": "ff",
+      "userName": "",
+      "email": "",
+      "password": "",
+      "id": 5
+    },
+    {
+      "firstName": "f",
+      "lastName": "f",
+      "userName": "f",
+      "email": "f",
+      "password": "",
+      "id": 6
+    }
+  ]
+}
