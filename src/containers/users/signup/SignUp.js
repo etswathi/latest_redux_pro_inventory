@@ -1,14 +1,15 @@
 import React from "react";
-import "./update.css";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { updateProductByAction } from "../actions/AddProductAction";
+import { updateProductByAction } from "../../../actions/ProductsAction";
 import { Message } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import Notification from "./Notification";
-import logo from "../../src/images/logoo.png";
-import { signUpByAction } from "../actions/UsersAction";
+import Notification from "../../notification/Notification";
+
+import { signUpByAction } from "../../../actions/UsersAction";
 import "./signup.css";
+import axios from "axios";
+import {getAllUsersAction} from '../../../actions/UsersAction'
 
 class UpdateProduct extends React.Component {
   constructor(props) {
@@ -27,22 +28,19 @@ class UpdateProduct extends React.Component {
     };
   }
 
-  // componentWillMount() {
-  //   let productToUpdate = this.props.products.find((p) => {
-  //     return p.id == this.props.history.location.state;
-  //   });
-  //   this.setState({
-  //     id: productToUpdate.id,
-  //     productName: productToUpdate.productName,
-  //     productDescription: productToUpdate.productDescription,
-  //     productPrice: productToUpdate.productPrice,
-  //     categoryName: productToUpdate.categoryName,
-  //     inStock: productToUpdate.inStock,
-  //     quantity: productToUpdate.quantity,
-  //     image: productToUpdate.productImage,
-  //     count: productToUpdate.count,
-  //   });
-  // }
+
+
+
+  componentWillMount() {
+   axios.get('http://localhost:3000/allusers').then(
+
+   res=>{
+     console.log(res.data)
+     this.props.getAllUsersAction(res.data)
+   }
+
+   )
+  }
 
   checkValidation = () => {
     console.log("chek");
@@ -108,13 +106,20 @@ class UpdateProduct extends React.Component {
         password: this.state.password,
       };
 
-      this.props.signUpByAction(RequestBody);
-      this.setState(
-        {
-          updated: true,
-        },
-        () => console.log("updated")
-      );
+      axios.post('http://localhost:3000/allusers',RequestBody).then(
+        res=>{
+          console.log(res)
+          this.props.signUpByAction(res.data);
+          this.setState(
+            {
+              updated: true,
+            },
+            () => console.log("updated")
+          );
+        }
+      )
+     
+     
       // this.props.history.push("/login")
     }
   };
@@ -312,7 +317,7 @@ class UpdateProduct extends React.Component {
             <p style={{ textAlign: "center" }}>
               Already have an account?
               <button
-                disabled={!this.state.updated}
+                
                 onClick={this.loginButton}
                 style={{ cursor: "pointer", color: "white" }}
               >
@@ -329,16 +334,19 @@ function matchDispatchToProps(dispatch) {
   console.log("matchdispatch");
   return bindActionCreators(
     {
-      signUpByAction: signUpByAction, //matching action defined in actioncreator with props of the comp
+      signUpByAction: signUpByAction,
+      getAllUsersAction:getAllUsersAction 
+      //matching action defined in actioncreator with props of the comp
     },
     dispatch
   );
 }
 
 function mapStatesToProps(store) {
-  console.log(store.signUpUser);
+  console.log(store.allusers);
   return {
     newuser: store.signUpUser,
+    
   };
 }
 

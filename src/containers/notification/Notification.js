@@ -2,7 +2,7 @@ import React from "react";
 import "./notification.css";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import logo from '../../src/images/logoo.png'
+import logo from '../../images/logoo.jpg'
 class Notification extends React.Component {
   state = {};
   render() {

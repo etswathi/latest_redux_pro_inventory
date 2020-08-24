@@ -13,13 +13,6 @@ export const updateProductByAction = (product) => {
     payload: product,
   };
 };
-// export const deleteButtonClicked = (product) => {
-//   console.log(product)
-//   return {
-//     type: "PRODUCT_DELETE",
-//     payload: product,
-//   };
-// };
 
 export const sendAllData = (data) => {
   console.log(data)

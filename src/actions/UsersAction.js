@@ -5,3 +5,10 @@ export const signUpByAction = (user) => {
       payload: user,
     };
   };
+  export const getAllUsersAction = (users) => {
+    console.log(users)
+    return {
+      type: "ALL_USERS",
+      payload: users,
+    };
+  };

@@ -1,9 +1,9 @@
 {
   "allproducts": [
     {
-      "productName": "Toyssssv",
+      "productName": "Toyssssvb",
       "productDescription": "NKK PNP Newly Kids Sofa Cum Bed (Pink)",
-      "productPrice": 2800,
+      "productPrice": "30000",
       "categoryName": "Kids",
       "inStock": true,
       "quantity": "8",
@@ -21,16 +21,6 @@
       "id": 3
     },
     {
-      "productName": "Cameraaaam",
-      "productDescription": "High quality camera black colour",
-      "productPrice": "7900",
-      "categoryName": "Electronics",
-      "inStock": "true",
-      "quantity": "60",
-      "productImage": "https://images-na.ssl-images-amazon.com/images/I/914hFeTU2-L._SL1500_.jpg",
-      "id": 4
-    },
-    {
       "productName": "Laptop",
       "productDescription": "ASUS VivoBook 14 AMD Ryzen 3 3250U 14-inch FHD Compact",
       "productPrice": "56787",
@@ -39,6 +29,16 @@
       "quantity": "60",
       "productImage": "https://images-na.ssl-images-amazon.com/images/I/81b4nLdmuzL._SL1500_.jpg",
       "id": 6
+    },
+    {
+      "productName": "pro",
+      "productDescription": "prooo",
+      "productPrice": "78",
+      "categoryName": "Dress",
+      "inStock": "false",
+      "quantity": "69",
+      "productImage": "https://images-na.ssl-images-amazon.com/images/I/51KpnzjcrLL._UL1500_.jpg",
+      "id": 7
     }
   ],
   "allusers": [
@@ -73,22 +73,6 @@
       "email": "asha@gmail.com",
       "password": "asha",
       "id": 4
-    },
-    {
-      "firstName": "gg",
-      "lastName": "ff",
-      "userName": "",
-      "email": "",
-      "password": "",
-      "id": 5
-    },
-    {
-      "firstName": "f",
-      "lastName": "f",
-      "userName": "f",
-      "email": "f",
-      "password": "",
-      "id": 6
     }
   ]
 }

@@ -2,10 +2,10 @@ import React from "react";
 import "./addnewproduct.css";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { addNewProductByAction } from "../actions/AddProductAction";
+import { addNewProductByAction } from "../../../../actions/ProductsAction";
 import { Message } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
-import logo from "../../src/images/logoo.png";
+import logo from "../../../../images/logoo.jpg";
 import axios from "axios";
 
 class AddnewProduct extends React.Component {

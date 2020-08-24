@@ -12,6 +12,10 @@ class Login extends React.Component {
       invalidemail: false,
       invalidpassword: false,
       errormsg: false,
+      show:false,
+      passhow:false,
+      showemail:false,
+      showmsg:false
     };
   }
 
@@ -23,15 +27,17 @@ class Login extends React.Component {
     if (this.state.email === "") {
       nameerror = "Please enter email";
     }
+   
 
     if (this.state.password === "") {
       nameerror = "Please enter password";
     }
-
+    
     if (nameerror) {
       console.log("set state for nameError");
       this.setState({
         nameError: nameerror,
+      
       });
 
       return false;
@@ -44,7 +50,16 @@ class Login extends React.Component {
   };
 
   loginButton = (e) => {
+  
     e.preventDefault();
+
+    if(this.state.email===''&&this.state.password==='')
+    {
+      this.setState({showmsg:true})
+    }
+    if(this.checkValidation()){
+     
+  
     console.log(this.state.invalidemail);
     console.log(this.state.invalidpassword);
 
@@ -63,6 +78,10 @@ class Login extends React.Component {
       this.props.history.push("/all")
 
     }
+  }
+
+  
+   
 
     // emailChange = (event) => {
     //   this.setState({
@@ -79,16 +98,30 @@ class Login extends React.Component {
   };
 
   ChangeEmail = (event) => {
+    this.setState({
+      showmsg:false
+    })
+
+    if(event.target.value===null){
+      console.log("null")
+      this.setState({
+        show:false
+      })
+    }
     console.log("emailchange")
     this.setState({
       errormsg: false,
       invalidemail: false,
       invalidpassword: false,
+      show:false
     },()=>console.log(this.state.invalidemail));
 
     let findemail = this.props.users.find((f) => {
       return f.email === event.target.value;
     });
+
+
+
 
     console.log(findemail);
     if (findemail !== undefined) {
@@ -97,6 +130,7 @@ class Login extends React.Component {
         {
           email: event.target.value,
           invalidemail: false,
+          show:true
         },
         () => console.log(this.state.invalidemail)
       );
@@ -108,6 +142,7 @@ class Login extends React.Component {
       this.setState(
         {
           invalidemail: true,
+          showemail:true
         },
         () => console.log(this.state.invalidemail)
       );
@@ -124,6 +159,9 @@ class Login extends React.Component {
       errormsg: false,
       invalidemail: false,
       invalidpassword: false,
+      show:false,
+      showpas:false,
+      showmsg:false
     });
     let validarray = this.props.users.find((f) => {
       return f.email === this.state.email;
@@ -132,6 +170,7 @@ class Login extends React.Component {
     if (validarray.password === event.target.value) {
       this.setState({
         password: event.target.value,
+        passhow:true
       });
       this.checkValidation();
     }
@@ -186,6 +225,8 @@ class Login extends React.Component {
         </h2>
         <div className="wrap">
           <h3>Sign In</h3>
+          {this.state.showmsg && <div>Enter vl</div>}
+         
 
           <form>
             <input
@@ -194,9 +235,10 @@ class Login extends React.Component {
               placeholder="Email"
               required
             />
-            {this.state.invalidemail && (
-              <div>invalid email</div>
+            {this.state.show && (
+              <div>email verified</div>
             )}
+           
 
             <input
               type="password"
@@ -204,8 +246,11 @@ class Login extends React.Component {
               placeholder="Password"
               required
             />
+             {this.state.passhow && (
+              <div>pasword verified</div>
+            )}
 
-            <button className="buttonlogin" onClick={this.loginButton}>
+            <button className="buttonlogin" onClick={this.loginButton} >
               Continue
             </button>
           </form>
@@ -217,7 +262,7 @@ class Login extends React.Component {
 function mapStateToProps(store) {
   console.log(store.signUpUser);
   return {
-    users: store.signUpUser,
+    users: store.allusers,
   };
 }
 

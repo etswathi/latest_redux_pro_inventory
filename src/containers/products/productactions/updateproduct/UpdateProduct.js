@@ -2,11 +2,11 @@ import React from "react";
 import "./update.css";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { updateProductByAction } from "../actions/AddProductAction";
+import { updateProductByAction } from "../../../../actions/ProductsAction";
 import { Message } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import Notification from "./Notification";
-import logo from "../../src/images/logoo.png";
+import Notification from "../../../notification/Notification";
+import logo from "../../../../images/logoo.jpg";
 import axios from "axios";
 
 class UpdateProduct extends React.Component {

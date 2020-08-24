@@ -1,7 +1,7 @@
-export default function (state = null, action) {
+// export default function (state = null, action) {
   //right now it has only one action but  normaly many so switch v use here
-  console.log("reducer");
-  switch (action.type) {
+  // console.log("reducer");
+  // switch (action.type) {
    
     
     //  case "PRODUCT_ADD":
@@ -14,7 +14,7 @@ export default function (state = null, action) {
       //   quantity: action.payload.quantity,
       //   productImage:action.payload.image,   }, ...state]
       // return newProduct
-    default:
-      return state;
-  }
-}
+//     default:
+//       return state;
+//   }
+// }

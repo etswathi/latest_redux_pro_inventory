@@ -6,10 +6,9 @@ import { Table } from "react-bootstrap";
 import { Divider } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 import "./allproducts.css";
-import logo from '../../src/images/logoo.png'
-import axios from 'axios'
-import {sendAllData} from '../actions/AddProductAction'
-
+import logo from "../../../images/logoo.jpg";
+import axios from "axios";
+import { sendAllData } from "../../../actions/ProductsAction";
 
 class AllProducts extends React.Component {
   constructor() {
@@ -20,7 +19,7 @@ class AllProducts extends React.Component {
       delete: false,
       searchValue: "",
       searchproducts: [],
-      show:false
+      show: false,
     };
   }
 
@@ -37,17 +36,15 @@ class AllProducts extends React.Component {
     }
     this.setState({ searchValue: searchV });
     console.log(searchV);
-    
+
     let searchF = this.state.searchproducts.filter((p) => {
-      
       return (
         p.productName.toLowerCase().match(searchV.toLowerCase()) ||
-        p.categoryName.toLowerCase().match(searchV.toLowerCase())||
-        p.productPrice===parseInt(searchV)||
-        p.productDescription.toLowerCase().match(searchV.toLowerCase())||
-        p.categoryName.toLowerCase().match(searchV.toLowerCase())||
-        p.quantity===parseInt(searchV)
-
+        p.categoryName.toLowerCase().match(searchV.toLowerCase()) ||
+        p.productPrice === parseInt(searchV) ||
+        p.productDescription.toLowerCase().match(searchV.toLowerCase()) ||
+        p.categoryName.toLowerCase().match(searchV.toLowerCase()) ||
+        p.quantity === parseInt(searchV)
       );
     });
     console.log(searchF);
@@ -63,12 +60,10 @@ class AllProducts extends React.Component {
     this.setState({
       delete: true,
     });
-    axios.delete('http://localhost:3000/allproducts/'+id).then(
-      res=>{
-        console.log(res)
-        this.getAllProducts()
-      }
-    )
+    axios.delete("http://localhost:3000/allproducts/" + id).then((res) => {
+      console.log(res);
+      this.getAllProducts();
+    });
 
     // this.props.deleteButtonClicked(id);
   };
@@ -85,44 +80,26 @@ class AllProducts extends React.Component {
   //   }
   // }
 
-
-  getAllProducts=()=>{
-    axios.get('http://localhost:3000/allproducts')
-    .then(res => {
+  getAllProducts = () => {
+    axios.get("http://localhost:3000/allproducts").then(
+      (res) => {
         console.log(res);
-        this.props.sendAllData(res.data)
-        this.setState({
-          products: this.props.allproducts,
-        },()=>console.log(this.state.products));
-       
-    }, err => {
+        this.props.sendAllData(res.data);
+        this.setState(
+          {
+            products: this.props.allproducts,
+          },
+          () => console.log(this.state.products)
+        );
+      },
+      (err) => {
         console.log(err);
-    })
-    
-
-
-  }
+      }
+    );
+  };
 
   componentWillMount() {
-
-    
-      this.getAllProducts()
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
+    this.getAllProducts();
   }
 
   PriceChange = (e) => {
@@ -271,26 +248,20 @@ class AllProducts extends React.Component {
   };
 
   render() {
+    console.log("render" + this.props.allproducts);
 
-
-
-
-
-
-
-    
-    console.log("render"+this.props.allproducts)
-
-
-  //   if(this.props.allproducts.length===0){
-  //     return ( 
-  //         <div>All Blogs WIll be displayed here!!!!</div>
-  //      );
-  // }
+    //   if(this.props.allproducts.length===0){
+    //     return (
+    //         <div>All Blogs WIll be displayed here!!!!</div>
+    //      );
+    // }
     return (
       <div>
         <div class="headernot">
-        <img style={{width:'60px',height:'60px',borderRadius:'60px'}} src={logo}/>
+          <img
+            style={{ width: "60px", height: "60px", borderRadius: "60px" }}
+            src={logo}
+          />
           <a href="#default" class="logo">
             Inventory.com
           </a>
@@ -298,8 +269,8 @@ class AllProducts extends React.Component {
           <div class="headernot-right">
             <a>
               {" "}
-              <input className="searchpro"
-               
+              <input
+                className="searchpro"
                 type="search"
                 placeholder="Search here"
                 onChange={this.getSearch}
@@ -322,9 +293,7 @@ class AllProducts extends React.Component {
           </select>
         </div>
 
-        <div
-          className="searchprice"
-        >
+        <div className="searchprice">
           <select onChange={this.PriceChange} id="price" name="price">
             <option placeholder="Price">Search by Price</option>
             <option value="Below $50">Below $50</option>
@@ -348,8 +317,8 @@ class AllProducts extends React.Component {
                 <th>DeleteAction</th>
               </tr>
 
-             
-                {this.state.delete && this.props.allproducts.map((product) => {
+              {this.state.delete &&
+                this.props.allproducts.map((product) => {
                   return (
                     <tr>
                       <td>{product.productName}</td>
@@ -431,75 +400,6 @@ class AllProducts extends React.Component {
                 })}
             </table>
           </div>
-
-          {/* <Table striped bordered hover variant="dark">
-          <thead>
-            <tr>
-            <th colSpan="4">Product Name</th>
-            <th  colSpan="6">Product Description</th>
-            <th  colSpan="3">Price</th>
-            <th  colSpan="3">Category</th>
-            <th  colSpan="3">In Stock</th>
-            <th  colSpan="3">Quantity</th>
-            <th  colSpan="3">Image</th>
-            <th  colSpan="6">Actions</th>
-
-            
-            </tr>
-
-          </thead>
-        
-          
-          <tbody>
-          
-            {this.props.allproducts.map((product) => {
-              return (
-                <tr>
-                  <td  colSpan="4">{product.productName}</td>
-                  <td  colSpan="6">{product.productDescription}</td>
-                  <td  colSpan="3">{product.productPrice}</td>
-                  <td  colSpan="3">{product.categoryName}</td>
-                  <td  colSpan="3">{product.inStock}</td>
-                  <td  colSpan="3">{product.quantity}</td>
-                  <td  colSpan="3">
-                    <img
-                      style={{
-                        height: "100px",
-                        width: "100px",
-                        borderRadius: "100px",
-                      }}
-                      src={product.productImage}
-                    />
-                  </td>
-                  <td  colSpan="6">
-                    <button
-                      onClick={this.updateButtonClicked.bind(this, product.id)}
-                    >
-                      Update
-                    </button>
-                  </td>
-                  <td>
-                    <button
-                      onClick={this.props.deleteButtonClicked.bind(
-                        this,
-                        product.id
-                      )}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                 
-                </tr>
-              
-
-             
-
-               
-              );
-            
-            })}
-          </tbody>
-        </Table> */}
         </div>
       </div>
     );
@@ -507,14 +407,13 @@ class AllProducts extends React.Component {
 }
 
 function mapStatesToProps(store) {
-  console.log("kkkkkk")
+  console.log("kkkkkk");
   console.log(store.allproducts);
 
-  if(store.allproducts!==null){
-    return { allproducts: store.allproducts}
-
+  if (store.allproducts !== null) {
+    return { allproducts: store.allproducts, count: store.allproducts.length };
   }
- 
+
   // count:store.allproducts.length };
 }
 
@@ -522,9 +421,8 @@ function deleteAction(dispatch) {
   return bindActionCreators(
     {
       // deleteButtonClicked: deleteButtonClicked,
-      sendAllData:sendAllData
-      
-      
+      sendAllData: sendAllData,
+
       //matching action defined in actioncreator with props of the comp
     },
     dispatch
