@@ -1,7 +1,7 @@
 {
   "allproducts": [
     {
-      "productName": "Toyssssvb",
+      "productName": "Toyss",
       "productDescription": "NKK PNP Newly Kids Sofa Cum Bed (Pink)",
       "productPrice": "30000",
       "categoryName": "Kids",
@@ -31,13 +31,13 @@
       "id": 6
     },
     {
-      "productName": "pro",
-      "productDescription": "prooo",
-      "productPrice": "78",
-      "categoryName": "Dress",
-      "inStock": "false",
-      "quantity": "69",
-      "productImage": "https://images-na.ssl-images-amazon.com/images/I/51KpnzjcrLL._UL1500_.jpg",
+      "productName": " Samsung Galaxy S10",
+      "productDescription": " Samsung Galaxy S10",
+      "productPrice": "6700",
+      "categoryName": "Electronics",
+      "inStock": "true",
+      "quantity": "90",
+      "productImage": "https://images-na.ssl-images-amazon.com/images/I/61BAVcOnyiL._SL1500_.jpg",
       "id": 7
     }
   ],

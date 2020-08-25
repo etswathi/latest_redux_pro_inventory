@@ -41,10 +41,10 @@ class AllProducts extends React.Component {
       return (
         p.productName.toLowerCase().match(searchV.toLowerCase()) ||
         p.categoryName.toLowerCase().match(searchV.toLowerCase()) ||
-        p.productPrice === parseInt(searchV) ||
+        p.productPrice === searchV ||
         p.productDescription.toLowerCase().match(searchV.toLowerCase()) ||
         p.categoryName.toLowerCase().match(searchV.toLowerCase()) ||
-        p.quantity === parseInt(searchV)
+        p.quantity === searchV
       );
     });
     console.log(searchF);
